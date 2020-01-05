@@ -9,24 +9,33 @@ export interface IFiledState {
     errorMessage: string
 }
 
-export interface IModelFactory<S> {
-    new(state: S): IModel<S>
+export interface ILayoutState {
+    nodePath:string
 }
 
-export interface IModel<S> {
-    state: S
-    preState: S
-    controller: IState
-    getState: () => S
+export interface IFormState {
+    values:any
+    initialValues:any
+}
+
+export interface IModelFactory<State> {
+    new(state: any): IModel<State>
+}
+
+export interface IModel<State> {
+    state: State
+    preState: State
+    controller: IState<State>
+    getState: () => State
     setState: (any) => void
 }
 
-export interface IState {
-    computeState: (draft: IFiledState, preState: IFiledState) => void
+export interface IState<State> {
+    computeState: (draft: State, preState: State) => void
 }
 
 export interface IStateFactory<State> {
-    new(state: State): IState
+    new(state: State): IState<State>
 
     defaultState: State
 }
