@@ -1,5 +1,6 @@
 import {createModel} from "../shared/model";
 import {IFormState} from "../types";
+import {StateType} from "../enum";
 
 export const FormState = createModel<IFormState>(
     class FormState {
@@ -10,5 +11,6 @@ export const FormState = createModel<IFormState>(
 
         computeState(draft: IFormState, preState: IFormState) {
         }
-    }
+    },
+    StateType.form
 )

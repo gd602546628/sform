@@ -1,6 +1,6 @@
 import {Watcher} from "../util/watcher";
 import {IFiledState, IFormState, ILayoutState, IModel, IState} from "../types";
-import set from 'lodash/set'
+import set = require('lodash/set')
 import {isStr} from "../util";
 
 export class FormTree extends Watcher {
@@ -26,7 +26,7 @@ export class FormTree extends Watcher {
     }
 
     getNode(nodePath: string) {
-        if(isStr(nodePath)&&nodePath){
+        if (isStr(nodePath) && nodePath) {
             return this.nodes[nodePath]
         }
     }

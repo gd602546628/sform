@@ -1,6 +1,17 @@
 import {isStr} from "./index";
 
 export const pathHelper = {
+    getLastItem(str: string) {
+        if (isStr(str)) {
+            const arr = str.split('.')
+            return arr.pop()
+        }
+    },
+    isArrNode(str: string) {
+        if (isStr(str)) {
+            return str.indexOf('[') >= 0
+        }
+    },
     getParent(path: string) {
         if (isStr(path) && path) {
             const arr = path.split('.')
@@ -15,6 +26,11 @@ export const pathHelper = {
             }
             arr.pop()
             return arr.join('.')
+        }
+    },
+    getNow(path: string) {
+        if (isStr(path) && path) {
+
         }
     }
 }

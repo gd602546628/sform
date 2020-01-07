@@ -1,5 +1,5 @@
 import {Rule} from "./validator";
-
+import {StateType} from "./enum";
 export interface IFiledState {
     nodePath: string
     dataPath: string
@@ -10,12 +10,13 @@ export interface IFiledState {
 }
 
 export interface ILayoutState {
-    nodePath:string
+    nodePath: string
+    dataPath: string
 }
 
 export interface IFormState {
-    values:any
-    initialValues:any
+    values: any
+    initialValues: any
 }
 
 export interface IModelFactory<State> {
@@ -28,6 +29,7 @@ export interface IModel<State> {
     controller: IState<State>
     getState: () => State
     setState: (any) => void
+    type: StateType
 }
 
 export interface IState<State> {
